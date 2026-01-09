@@ -1,26 +1,131 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
+/* @custom-variant dark (&:is(.dark *)); */
+
+/* -------------------- */
+/* Base HTML / BODY     */
+/* -------------------- */
+html,
+body,
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  height: 100%;
+  background: #121212;
+  color: #E0E0E0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* -------------------- */
+/* Dragon Logo Animation */
+/* -------------------- */
+.dragon-logo {
+  position: relative;
+  will-change: transform, filter;
+  animation:
+    dragon-breathe 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite,
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes dragon-breathe {
+  0% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 6px rgba(170, 100, 255, 0.25));
+  }
+  50% {
+    transform: translateY(-5px) scale(1.02);
+    filter: drop-shadow(0 0 12px rgba(190, 120, 255, 0.45));
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 6px rgba(170, 100, 255, 0.25));
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+/* -------------------- */
+/* Scrollbar Utilities  */
+/* -------------------- */
+.hidden-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* -------------------- */
+/* Custom Design Tokens */
+/* -------------------- */
+:root {
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --bg-tertiary: #272727;
+
+  --text-primary: #E0E0E0;
+  --text-secondary: #B0B0B0;
+  --text-disabled: #757575;
+
+  --accent-primary: #1DB954;
+  --alert-error: #FF4B4B;
+  --accent-info: #3AA3F3;
+  --accent-highlight: #FFC107;
+}
+
+/* -------------------- */
+/* shadcn/ui Tokens     */
+/* -------------------- */
+:root {
+  --radius: 0.625rem;
+
+  --background: #121212;
+  --foreground: #E0E0E0;
+
+  --card: #1E1E1E;
+  --card-foreground: #E0E0E0;
+
+  --popover: #1E1E1E;
+  --popover-foreground: #E0E0E0;
+
+  --primary: #1DB954;
+  --primary-foreground: #0A0A0A;
+
+  --secondary: #1E1E1E;
+  --secondary-foreground: #E0E0E0;
+
+  --muted: #272727;
+  --muted-foreground: #B0B0B0;
+
+  --accent: #272727;
+  --accent-foreground: #E0E0E0;
+
+  --destructive: #FF4B4B;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #2E2E2E;
+  --input: #2E2E2E;
+  --ring: #3AA3F3;
+
+  --sidebar: #1E1E1E;
+  --sidebar-foreground: #E0E0E0;
+  --sidebar-primary: #1DB954;
+  --sidebar-primary-foreground: #0A0A0A;
+  --sidebar-accent: #272727;
+  --sidebar-accent-foreground: #E0E0E0;
+  --sidebar-border: #2E2E2E;
+  --sidebar-ring: #3AA3F3;
+}
+
+/* Dark = same (dark-first app) */
+.dark {
+  --background: #121212;
+  --foreground: #E0E0E0;
+}
+
+/* -------------------- */
+/* Tailwind Base Layer  */
+/* -------------------- */
+@layer base {
+  body {
+    background-color: rgb(18 18 18);
+    color: rgb(224 224 224);
+  }
 }

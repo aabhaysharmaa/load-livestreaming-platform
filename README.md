@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LOAD - Livestreaming Platform
+
+A high-performance live streaming platform built for creators who want full control over their streams and viewers who expect quality.
+
+## What is LOAD?
+
+LOAD lets you stream directly to your audience using the same tools you already know—OBS, your console, or any RTMP-compatible software. We handle the heavy lifting: ingress generation, real-time chat, moderation, and a player that actually works.
+
+Whether you're streaming gameplay from your PS5 or running a professional broadcast setup, LOAD scales with you.
+
+## Core Features
+
+**Streaming**
+
+- RTMP and WHIP protocol support with up to 8K resolution
+- Automatic ingress creation when you go live
+- Direct console streaming (PS5, Xbox) and capture card support
+- Live viewer counts and status webhooks
+
+**Chat & Moderation**
+
+- WebSocket-based real-time chat with per-user color assignment
+- Slow mode, chat delays, and followers-only mode
+- Kick, mute, and ban tools for moderators
+- Toggle chat on/off per stream
+
+**Creator Dashboard**
+
+- Real-time analytics and stream health monitoring
+- Thumbnail management and player configuration
+- Full moderation controls and participant visibility
+
+**Player Experience**
+
+- Adaptive bitrate streaming with ultra-low latency
+- Theatre mode and collapsible sidebars
+- Following and recommended streams sidebar
+- Clean, distraction-free viewing options
+
+**Performance**
+
+- Server-side rendering for fast page loads
+- Loading skeletons for every major component (no blank screens)
+- Horizontally scalable backend architecture
+- Optimized route grouping and layouts
+
+## Tech Stack
+
+- **Frontend:** Next.js with SSR
+- **Backend:** Node.js
+- **Database:** MySQL
+- **Streaming:** RTMP/WHIP (up to 8K)
+- **Real-time:** WebSockets
 
 ## Getting Started
 
-First, run the development server:
+### What You'll Need
+
+- Node.js (LTS version)
+- MySQL database
+- OBS or compatible streaming software
+- An RTMP/WHIP-compatible streaming server with 8K support
+
+### Installation
+
+```bash
+git clone https://github.com/your-username/LOAD.git
+cd LOAD
+npm install
+```
+
+### Configuration
+
+Create a `.env` file in the root directory:
+
+```env
+DATABASE_URL=mysql://user:password@localhost:3306/LOAD
+STREAMING_SERVER_URL=your-streaming-server
+WEBSOCKET_PORT=3001
+```
+
+### Running Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the platform.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Setting Up Your First Stream
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create an account and navigate to your creator dashboard
+2. Click "Go Live" to generate your stream key and ingress URL
+3. Add the RTMP URL and stream key to OBS (or your console streaming settings)
+4. Configure your stream title, thumbnail, and chat settings
+5. Hit "Start Streaming" in OBS
 
-## Learn More
+Your stream will appear live on LOAD within seconds.
 
-To learn more about Next.js, take a look at the following resources:
+## Console Streaming
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**PS5/Xbox Setup:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Go to your console's broadcast settings
+2. Select "Custom RTMP Server"
+3. Enter your LOAD RTMP URL and stream key from the dashboard
+4. Start streaming—no capture card needed
 
-## Deploy on Vercel
+**Capture Card Setup:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Connect your console to your capture card
+2. Add the capture card as a video source in OBS
+3. Stream to LOAD using your RTMP credentials
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Architecture & System Design
+
+For in-depth system design, architecture decisions, and technical deep dives, [check out the full case study here](YOUR_PORTFOLIO_URL_HERE).
+
+## Contributing
+
+We're not accepting contributions right now, but feel free to fork and adapt for your own use.
+
+## License
+
+MIT License - do what you want with it.
+
+## Support
+
+For issues or questions, open a GitHub issue or check the docs at [your-docs-url].
+
+---
+
+Built for creators who care about performance and viewers who expect quality.
