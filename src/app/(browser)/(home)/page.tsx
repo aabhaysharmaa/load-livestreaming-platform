@@ -1,10 +1,13 @@
-import { UserButton } from '@clerk/nextjs'
-import React from 'react'
+"use client";
+
+
+import { cn } from "@/lib/utils";
 
 const Home = () => {
+
   return (
-    <div>
-      <UserButton />
+    <div className={cn("")}>
+      Home
     </div>
   )
 }

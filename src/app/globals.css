@@ -120,6 +120,39 @@ body,
   --foreground: #E0E0E0;
 }
 
+:root {
+  --color-light-red: #FFB3B3;
+  --color-light-pink: #FFC0CB;
+  --color-light-orange: #FFD8A8;
+  --color-light-yellow: #FFF9B0;
+  --color-light-green: #B9FBC0;
+  --color-light-teal: #A0F0ED;
+  --color-light-cyan: #B0FFFF;
+  --color-light-blue: #B3D9FF;
+  --color-light-indigo: #C5C8FF;
+  --color-light-violet: #E1CFFF;
+  --color-light-purple: #E0B3FF;
+  --color-light-magenta: #FFB3FF;
+  --color-light-lavender: #E6E6FA;
+  --color-light-peach: #FFE5B4;
+  --color-light-apricot: #FFDAB9;
+  --color-light-mint: #BFFCC6;
+  --color-light-springgreen: #CCFFCC;
+  --color-light-lime: #E6FFB3;
+  --color-light-gold: #FFF2B3;
+  --color-light-sand: #FFF0C1;
+  --color-light-coral: #FFBFAF;
+  --color-light-salmon: #FFCBCB;
+  --color-light-rose: #FFD1DC;
+  --color-light-sky: #CCEEFF;
+  --color-light-ice: #E0FFFF;
+  --color-light-silver: #E8E8E8;
+  --color-light-beige: #F5F5DC;
+  --color-light-pearl: #FDEEF4;
+  --color-light-cream: #FFFDD0;
+  --color-light-almond: #FFEBCD;
+}
+
 /* -------------------- */
 /* Tailwind Base Layer  */
 /* -------------------- */
