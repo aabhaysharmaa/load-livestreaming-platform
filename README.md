@@ -116,6 +116,20 @@ Your stream will appear live on LOAD within seconds.
 
 For in-depth system design, architecture decisions, and technical deep dives, [check out the full case study here](YOUR_PORTFOLIO_URL_HERE).
 
+## Why This Is Hard
+
+Building LOAD required solving several non-trivial problems:
+
+- Managing real-time state consistency between live streams, chat, and viewer counts
+- Handling RTMP/WHIP stream lifecycles and syncing external streaming events via webhooks
+- Ensuring low-latency chat and moderation actions without page refreshes
+- Combining server-side rendering with real-time WebSocket updates
+- Designing creator tools that react instantly to stream state changes
+
+This is not a CRUD application—LOAD is an event-driven, real-time system.
+
+
+
 ## Contributing
 
 We're not accepting contributions right now, but feel free to fork and adapt for your own use.
