@@ -5,7 +5,7 @@ import { useSidebar } from "@/store/useSidebar";
 import UserItem, { UserItemSkeleton } from "./user-item";
 
 interface RecommendedProps {
-	data: User[];
+	data: User[] | [];
 }
 
 const Recommended = ({ data }: RecommendedProps) => {
@@ -33,7 +33,7 @@ export default Recommended
 
 export const RecommendedSkeleton = () => {
 	return (
-		<ul className="mt-20">
+		<ul className="mt-2">
 			{[...Array(4)].map((_, idx) => (
 				<UserItemSkeleton key={idx} />
 			))}

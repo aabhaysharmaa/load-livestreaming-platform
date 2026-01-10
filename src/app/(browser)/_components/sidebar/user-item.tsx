@@ -44,7 +44,6 @@ const UserItem = ({ username, isLive, imageUrl }: UserItemProps) => {
 
 export default UserItem;
 
-
 export const UserItemSkeleton = () => {
 	return (
 		<li className='flex items-center   gap-x-6 px-3 py-2'>

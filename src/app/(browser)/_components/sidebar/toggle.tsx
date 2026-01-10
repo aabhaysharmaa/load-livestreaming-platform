@@ -5,10 +5,11 @@ import { cn } from "@/lib/utils";
 import { useSidebar } from "@/store/useSidebar";
 import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
 import Hint from "./tooltip";
+import { Skeleton } from "@/components/ui/skeleton";
 
 
 const Toggle = () => {
-	const { collapsed, onCollapse, onExpand } = useSidebar();
+	const { collapsed, onCollapse, onExpand } = useSidebar((state) => state);
 	const label = collapsed ? "Expand" : "collapsed"
 	return (
 		<div className={cn("flex flex-col items-center p-4 mb-2")}>
@@ -37,3 +38,11 @@ const Toggle = () => {
 
 export default Toggle;
 
+export const ToggleSkeleton = () => {
+	return (
+		<div className="p-3 pl-6  hidden mt-8  lg:flex items-center justify-between w-full">
+			<Skeleton className="h-8 w-25 bg-[#272727]" />
+			<Skeleton className="size-8 bg-[#272727]" />
+		</div>
+	)
+}
