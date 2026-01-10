@@ -1,8 +1,7 @@
 import React, { ReactNode, Suspense } from 'react'
 import NavBar from './_components/navbar'
 import SideBar, { SidebarSkelton } from './_components/sidebar'
-import Container from './_components/container'
-
+import Container from './_components/container';
 
 const BrowserLayout = ({ children }: { children: ReactNode }) => {
 	return (
