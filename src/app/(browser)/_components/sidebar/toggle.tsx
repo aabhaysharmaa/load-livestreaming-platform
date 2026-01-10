@@ -1,13 +1,15 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useSidebar } from "@/store/useSidebar";
 import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
 import Hint from "./tooltip";
-import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+
 
 const Toggle = () => {
-	const { collapsed, onCollapse, onExpand } = useSidebar();
+	const { collapsed, onCollapse, onExpand } = useSidebar((state) => state);
 	const label = collapsed ? "Expand" : "collapsed"
 	return (
 		<div className={cn("flex flex-col items-center p-4 mb-2")}>
@@ -22,9 +24,9 @@ const Toggle = () => {
 				</div>
 			)}
 			{collapsed && (
-				<div  className="hidden  md:flex items-center justify-center">
+				<div className="hidden  md:flex items-center justify-center">
 					<Hint asChild label={label} >
-						<Button  onClick={onExpand} className="cursor-pointer hover:text-white">
+						<Button onClick={onExpand} className="cursor-pointer hover:text-white">
 							<ArrowRightFromLine className="size-5 block  text-[#757575]" />
 						</Button>
 					</Hint>
@@ -34,4 +36,13 @@ const Toggle = () => {
 	)
 }
 
-export default Toggle ;
+export default Toggle;
+
+export const ToggleSkeleton = () => {
+	return (
+		<div className="p-3 pl-6  hidden mt-8  lg:flex items-center justify-between w-full">
+			<Skeleton className="h-8 w-25 bg-[#272727]" />
+			<Skeleton className="size-8 bg-[#272727]" />
+		</div>
+	)
+}
