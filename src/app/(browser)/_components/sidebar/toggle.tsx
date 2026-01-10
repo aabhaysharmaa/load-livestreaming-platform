@@ -1,10 +1,11 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useSidebar } from "@/store/useSidebar";
 import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
 import Hint from "./tooltip";
-import { Button } from "@/components/ui/button";
+
 
 const Toggle = () => {
 	const { collapsed, onCollapse, onExpand } = useSidebar();
@@ -22,9 +23,9 @@ const Toggle = () => {
 				</div>
 			)}
 			{collapsed && (
-				<div  className="hidden  md:flex items-center justify-center">
+				<div className="hidden  md:flex items-center justify-center">
 					<Hint asChild label={label} >
-						<Button  onClick={onExpand} className="cursor-pointer hover:text-white">
+						<Button onClick={onExpand} className="cursor-pointer hover:text-white">
 							<ArrowRightFromLine className="size-5 block  text-[#757575]" />
 						</Button>
 					</Hint>
@@ -34,4 +35,5 @@ const Toggle = () => {
 	)
 }
 
-export default Toggle ;
+export default Toggle;
+

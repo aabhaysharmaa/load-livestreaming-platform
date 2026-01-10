@@ -7,6 +7,9 @@ export const getRecommended = async () => {
 			createdAt: "desc"
 		}
 	});
+	if(!recommended){
+		return null ;
+	}
 	return recommended
 }
 
