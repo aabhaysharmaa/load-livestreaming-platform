@@ -128,8 +128,6 @@ Building LOAD required solving several non-trivial problems:
 
 This is not a CRUD application—LOAD is an event-driven, real-time system.
 
-
-
 ## Contributing
 
 We're not accepting contributions right now, but feel free to fork and adapt for your own use.

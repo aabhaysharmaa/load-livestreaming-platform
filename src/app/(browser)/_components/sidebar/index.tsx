@@ -1,10 +1,10 @@
-import { getRecommended, } from "@/services/recommended-service";
+import {  getRecommendedService, } from "@/services/recommended-service";
 import Recommended, { RecommendedSkeleton } from "./recommended";
 import Toggle, { ToggleSkeleton } from "./toggle";
 import Wrapper from "./wrapper";
 
 const SideBar = async () => {
-	const recommended = await getRecommended();
+	const recommended = await getRecommendedService();
 
 	return (
 		<Wrapper>
