@@ -11,7 +11,12 @@ export async function POST(request: Request) {
 				data: {
 					username: evt.data.username!,
 					externalUserId: evt.data.id,
-					imageUrl: evt.data.image_url
+					imageUrl: evt.data.image_url,
+					stream: {
+						create: {
+							name: `${evt.data.username!}'s stream`
+						}
+					}
 				}
 			})
 		}
