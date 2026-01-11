@@ -3,6 +3,7 @@ import { dark } from "@clerk/themes";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "LOAD",
   description: "LOAD - livestreaming platform",
-  icons : "/logos/mobile-logo.webp"
+  icons: "/logos/mobile-logo.webp"
 };
 
 export default function RootLayout({
@@ -33,7 +34,7 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} overflow-y-hidden ${geistMono.variable} antialiased`}
         >
-
+          <Toaster  theme="light"/>
           {children}
         </body>
       </html>
