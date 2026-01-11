@@ -19,13 +19,13 @@ const UserItem = ({ username, isLive, imageUrl }: UserItemProps) => {
 	const pathname = usePathname();
 	const { collapsed } = useSidebar((state) => state);
 
-	const href = `/u/${username}`;
+	const href = `/${username}`;
 	const isActive = pathname === href;
 	return (
 		<Button
 			asChild
 			variant="ghost"
-			className={cn("w-full h-12  hover:bg-[#252525] ", collapsed ? "  justify-center" : "justify-start", isActive && "bg-accent")}
+			className={cn("w-full h-12  hover:bg-[#252525] ", !collapsed && "justify-center", isActive && "bg-[#272727]")}
 		>
 			<Link href={href}>
 				<div className={cn("flex items-center justify-start w-full gap-x-4", collapsed && "justify-end")}>

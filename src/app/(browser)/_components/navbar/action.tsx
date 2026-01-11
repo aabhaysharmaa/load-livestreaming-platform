@@ -13,20 +13,18 @@ const Action = async () => {
 				<div className="">
 					<SignInButton>
 						<Button
-							variant={"ghost"}
-							className="cursor-pointer bg-[#2F5755] font-semibold hover:opacity-75"
+							variant="gray"
 						>
 							LogIn
 						</Button>
 					</SignInButton>
 				</div>
 			)}
-
 			{!!user && (
 				<div className="flex items-center justify-center">
 					<Button
-					 size="sm"
-					className="mx-4 flex text-[#757575] hover:text-white/60 items-center justify-center space-x-2 cursor-pointer">
+						size="sm"
+						className="mx-4 flex text-[#757575] hover:text-white/60 items-center justify-center space-x-2 cursor-pointer">
 						<Clapperboard className="size-5" />
 						<span className="font-semibold hidden md:flex">Dashboard</span>
 					</Button>
