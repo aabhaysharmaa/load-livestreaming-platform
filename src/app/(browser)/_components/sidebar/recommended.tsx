@@ -9,6 +9,7 @@ interface RecommendedProps {
 }
 
 const Recommended = ({ data }: RecommendedProps) => {
+
 	const { collapsed } = useSidebar((state) => state);
 
 	const showLabel = !collapsed && data.length > 0;

@@ -1,12 +1,11 @@
 import prisma from "@/lib/prismadb";
 import { getSelf } from "./auth-service";
+import { getUserById } from "./user";
 
 export const isFollowingUser = async (id: string) => {
 	try {
 		const self = await getSelf();
-		const otherUser = await prisma.user.findUnique({
-			where: { id }
-		})
+		const otherUser = await getUserById(id);
 		if (!otherUser) {
 			throw new Error("Not Found")
 		}
@@ -27,8 +26,32 @@ export const isFollowingUser = async (id: string) => {
 }
 
 export const getFollowUsers = async () => {
+	const self = await getSelf();
+	if(!self) {
+		return []
+	}
 	try {
 		const user = await prisma.follow.findMany({
+			where: {
+				followerId: self?.id,
+				following: {
+					AND: [
+						{
+							blocker: {
+								none: {
+									blockedId: self?.id
+								},
+							}
+						}, {
+							blocked: {
+								none: {
+									blockerId: self?.id
+								}
+							}
+						}
+					],
+				}
+			},
 			orderBy: {
 				createdAt: "desc"
 			}, include: {
@@ -44,7 +67,7 @@ export const getFollowUsers = async () => {
 
 export const followUser = async (id: string) => {
 	const self = await getSelf();
-	const otherUser = await prisma.user.findUnique({ where: { id } })
+	const otherUser = await getUserById(id);
 	if (!otherUser) {
 		throw new Error("Not Found")
 	}
@@ -76,7 +99,7 @@ export const followUser = async (id: string) => {
 
 export const unFollowUser = async (id: string) => {
 	const self = await getSelf();
-	const otherUser = await prisma.user.findUnique({ where: { id } })
+	const otherUser = await getUserById(id);
 	if (!otherUser) {
 		throw new Error("Not Found")
 	}

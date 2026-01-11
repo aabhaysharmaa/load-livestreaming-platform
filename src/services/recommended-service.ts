@@ -1,17 +1,18 @@
-import { getSelf } from "./auth-service";
+
 import prisma from "@/lib/prismadb";
 import { getSelf } from "./auth-service";
 
 
-export const getRecommended = async () => {
-	await new Promise((resolve) => setTimeout(resolve, 5000))
 export const getRecommendedService = async () => {
+	// await new Promise((r) => setTimeout(() => r , 5000))
 	let userId;
 	try {
 		const self = await getSelf();
-		userId = self.id
+		if (!self) {
+			userId = null
+		}
+		userId = self?.id
 	} catch {
-
 		userId = null
 	}
 	let users = [];
@@ -31,6 +32,14 @@ export const getRecommendedService = async () => {
 								}
 							}
 						}
+					}, {
+						NOT: {
+							blocked: {
+								some: {
+									blockerId: userId
+								}
+							}
+						}
 					}
 				]
 			}
@@ -43,30 +52,4 @@ export const getRecommendedService = async () => {
 		})
 	}
 	return users;
-}
-
-
-		userId = null;
-	}
-	let users = [];
-
-
-	if (userId) {
-		users = await prisma.user.findMany({
-			where: {
-				NOT: {
-					id: userId
-				}
-			}, orderBy: {
-				createdAt: "desc"
-			}
-		})
-	} else {
-		users = await prisma.user.findMany({
-			orderBy: {
-				createdAt: "desc"
-			}
-		})
-	}
-	return users
 }

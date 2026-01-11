@@ -1,5 +1,6 @@
 "use client";
 
+import { onBlock, onUnBlock } from "@/actions/block";
 import { onFollow, onUnFollow } from "@/actions/follow";
 import { Button } from "@/components/ui/button";
 import { useTransition } from "react";
@@ -8,13 +9,15 @@ import { toast } from "sonner";
 interface ActionProps {
 	userId: string
 	isFollowing: boolean
+	isBlocked: boolean
 }
 
-const Action = ({ userId, isFollowing }: ActionProps) => {
-	const [isPending, startTransition] = useTransition();
+const Action = ({ userId, isFollowing, isBlocked }: ActionProps) => {
+	const [isPendingFollow, startTransitionFollow] = useTransition();
+	const [isPendingBlock, startTransitionBlock] = useTransition();
 	console.log("IS Following", isFollowing)
 	const onClickFollow = () => {
-		startTransition(() => {
+		startTransitionFollow(() => {
 			onFollow(userId).then((data) => {
 				toast.success(`Followed user ${data.following.username}`)
 			}).catch(() => {
@@ -23,7 +26,7 @@ const Action = ({ userId, isFollowing }: ActionProps) => {
 		})
 	}
 	const onClickUnFollow = () => {
-		startTransition(() => {
+		startTransitionFollow(() => {
 			onUnFollow(userId).then((data) => {
 				toast.success(`unFollowed ${data.follower.username}`)
 			}).catch(() => {
@@ -35,15 +38,44 @@ const Action = ({ userId, isFollowing }: ActionProps) => {
 	const onClick = () => {
 		if (isFollowing) {
 			onClickUnFollow();
-		} else{
+		} else {
 			onClickFollow();
+		}
+	}
+	const onClickBlock = () => {
+		startTransitionBlock(() => {
+			onBlock(userId).then((data) => {
+				toast.success(`Blocked ${data.blocked.username}`)
+			}).catch(() => {
+				toast.error("Something went Wrong")
+			})
+		})
+	}
+	const onClickUnBlock = () => {
+		startTransitionBlock(() => {
+			onUnBlock(userId).then((data) => {
+				toast.success(`unBlocked ${data.blocker.username}`)
+			}).catch(() => {
+				toast.error("Something went Wrong")
+			})
+		})
+	}
+
+	const onHandleBlock = () => {
+		if (isBlocked) {
+			onClickUnBlock()
+		} else {
+			onClickBlock()
 		}
 	}
 
 	return (
-		<div>
-			<Button disabled={isPending} onClick={onClick} variant="gray">
+		<div className="space-x-4">
+			<Button disabled={isPendingFollow} onClick={onClick} variant="gray">
 				{isFollowing ? "unfollow" : "follow"}
+			</Button>
+			<Button disabled={isPendingBlock} onClick={onHandleBlock} variant="gray">
+				{isBlocked ? "unblock" : "block"}
 			</Button>
 		</div>
 	)
