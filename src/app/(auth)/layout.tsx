@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react'
 
 const AuthLayout = ({ children }: { children: ReactNode }) => {
 	return (
-		<div className='flex w-full flex-col  items-center justify-center min-h-full'>
+		<div className='flex w-full flex-col  items-center justify-center h-full'>
 			<Logo/>
 			{children}
 		</div>
