@@ -27,7 +27,7 @@ export const isFollowingUser = async (id: string) => {
 
 export const getFollowUsers = async () => {
 	const self = await getSelf();
-	if(!self) {
+	if (!self) {
 		return []
 	}
 	try {
@@ -67,6 +67,10 @@ export const getFollowUsers = async () => {
 
 export const followUser = async (id: string) => {
 	const self = await getSelf();
+	if (!self) {
+ throw new Error("Unauthorized")
+	}
+
 	const otherUser = await getUserById(id);
 	if (!otherUser) {
 		throw new Error("Not Found")

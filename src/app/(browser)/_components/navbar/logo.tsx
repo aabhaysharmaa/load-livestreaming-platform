@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Logo = () => {
 	return (
-		<div className="flex items-center justify-center ml-6 mr-6">
+		<div className="flex items-center ml-6 mr-6">
 			<div className="dragon-logo mt-3 hidden md:flex shrink-0">
 				<Link href="/">
 					<Image src="/logos/desktop-logo.webp" alt="logo" width={60} height={80} />
