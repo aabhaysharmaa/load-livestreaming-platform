@@ -20,7 +20,7 @@ const CopyButton = ({ value }: CopyButtonProps) => {
 		}, 1000)
 	}
 	return (
-		<Button variant={"gray"} onClick={onCopy}  disabled={!value || !isCopied} >
+		<Button variant={"gray"} onClick={onCopy}  disabled={!value} >
 			<Icon />
 		</Button>
 	)

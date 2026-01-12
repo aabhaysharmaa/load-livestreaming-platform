@@ -28,7 +28,7 @@ const UserItem = ({ username, isLive, imageUrl }: UserItemProps) => {
 			className={cn("w-full h-12  hover:bg-[#252525] ", !collapsed && "justify-center", isActive && "bg-[#272727]")}
 		>
 			<Link href={href}>
-				<div className={cn("flex items-center justify-start w-full gap-x-4", collapsed && "justify-end")}>
+				<div className={cn("flex items-center justify-start w-full gap-x-4", collapsed && "justify-center")}>
 					<UserAvatar imageUrl={imageUrl} username={username} isLive={isLive} />
 					{!collapsed && (
 						<p className='truncate'>{username}</p>
