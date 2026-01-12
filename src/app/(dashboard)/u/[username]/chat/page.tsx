@@ -12,7 +12,7 @@ const Chats = async () => {
 		throw new Error("Stream not found")
 	}
 	return (
-		<div className='p-6'>
+		<div className='p-6 w-full'>
 			<div className="mb-4">
 				<h1 className='text-2xl font-bold'>Chat Setting</h1>
 			</div>
@@ -22,9 +22,18 @@ const Chats = async () => {
 					label="Enabled chat"
 					value={stream.isChatEnabled}
 				/>
+				<ToggleCard
+					field="isChatDelayed"
+					label="ChatDelayed"
+					value={stream.isChatDelayed}
+				/>
+				<ToggleCard
+					field="isChatFollowerOnly"
+					label="ChatFollowerOnly"
+					value={stream.isChatFollowerOnly}
+				/>
 			</div>
 		</div>
 	)
 }
-
 export default Chats
