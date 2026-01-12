@@ -35,6 +35,7 @@ export default function RootLayout({
           className={`${geistSans.variable} overflow-y-hidden ${geistMono.variable} antialiased`}
         >
           <Toaster  theme="light"/>
+
           {children}
         </body>
       </html>
