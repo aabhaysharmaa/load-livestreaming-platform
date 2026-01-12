@@ -17,8 +17,8 @@ const ConnectModal = () => {
 						<SelectValue placeholder="Ingress Type" />
 					</SelectTrigger>
 					<SelectContent>
-					<SelectItem value="RTML">RTML</SelectItem>
-					<SelectItem value="WHIP">WHIP</SelectItem>
+						<SelectItem value="RTML">RTML</SelectItem>
+						<SelectItem value="WHIP">WHIP</SelectItem>
 					</SelectContent>
 				</Select>
 				<Alert>
@@ -36,5 +36,4 @@ const ConnectModal = () => {
 		</Dialog>
 	)
 }
-
 export default ConnectModal
