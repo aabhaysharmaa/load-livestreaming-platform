@@ -9,7 +9,7 @@ import Link from "next/link";
 const Action = async () => {
 	const user = await currentUser();
 	return (
-		<div className='mr-5'>
+		<div className='px-4'>
 			{!user && (
 				<div className="">
 					<SignInButton>
@@ -26,7 +26,8 @@ const Action = async () => {
 					<Button
 						asChild
 						size="sm"
-						className="mx-4 flex text-[#757575] hover:text-white/60 items-center justify-center space-x-2 cursor-pointer">
+						variant={"ghost"}
+						className="mx-4 flex text-[#757575]   items-center justify-center space-x-2 cursor-pointer">
 						<Link href={`/u/${user.username}`}>
 						<Clapperboard className="size-5" />
 						<span className="font-semibold hidden md:flex">Dashboard</span>

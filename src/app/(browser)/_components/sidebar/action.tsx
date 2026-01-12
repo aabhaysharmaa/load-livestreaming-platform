@@ -71,10 +71,10 @@ const Action = ({ userId, isFollowing, isBlocked }: ActionProps) => {
 
 	return (
 		<div className="space-x-4">
-			<Button disabled={isPendingFollow} onClick={onClick} variant="gray">
+			<Button disabled={isPendingFollow} onClick={onClick} variant="ghost">
 				{isFollowing ? "unfollow" : "follow"}
 			</Button>
-			<Button disabled={isPendingBlock} onClick={onHandleBlock} variant="gray">
+			<Button disabled={isPendingBlock} onClick={onHandleBlock} variant="ghost">
 				{isBlocked ? "unblock" : "block"}
 			</Button>
 		</div>

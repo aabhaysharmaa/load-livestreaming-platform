@@ -18,7 +18,7 @@ const Toggle = () => {
 				<div className="flex items-center  ml-5 justify-between w-full">
 					<p className="font-semibold  text-[#E0E0E0]">Dashboard</p>
 					<Hint label={label} asChild>
-						<Button onClick={onCollapse} className="hover:text-white cursor-pointer">
+						<Button onClick={onCollapse} variant={"ghost"} className="hover:text-white cursor-pointer">
 							<ArrowLeftFromLine className="size-5  cursor-pointer text-[#E0E0E0] h-auto ml-auto" />
 						</Button>
 					</Hint>
@@ -27,7 +27,7 @@ const Toggle = () => {
 			{collapsed && (
 				<div className="hidden  md:flex  items-center justify-center">
 					<Hint asChild label={label} >
-						<Button onClick={onExpand} className="cursor-pointer hover:text-white">
+						<Button onClick={onExpand} variant={"ghost"} className="cursor-pointer hover:text-white">
 							<ArrowRightFromLine className="size-5 block  text-[#E0E0E0]" />
 						</Button>
 					</Hint>
