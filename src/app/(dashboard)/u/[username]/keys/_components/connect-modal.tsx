@@ -65,5 +65,4 @@ const ConnectModal = () => {
 		</Dialog>
 	)
 }
-
 export default ConnectModal
