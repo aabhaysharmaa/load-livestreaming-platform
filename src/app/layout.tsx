@@ -32,7 +32,7 @@ export default function RootLayout({
     }}>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${geistSans.variable} overflow-y-hidden ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable}  ${geistMono.variable} antialiased`}
         >
           <Toaster  theme="light"/>
 
