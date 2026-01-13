@@ -6,11 +6,17 @@ import { useSidebar } from "@/store/useSidebar";
 import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
 import Hint from "./tooltip";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useEffect, useState } from "react";
 
 
 const Toggle = () => {
 	const { collapsed, onCollapse, onExpand } = useSidebar((state) => state);
+	const [mounted, setMounted] = useState(false);
 	const label = collapsed ? "Expand" : "collapsed"
+	  // eslint-disable-next-line react-hooks/set-state-in-effect
+	  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
 	return (
 		<div className={cn("flex flex-col items-center p-4 mb-2")}>
 			{!collapsed && (
@@ -26,7 +32,7 @@ const Toggle = () => {
 			{collapsed && (
 				<div className="hidden  md:flex items-center justify-center">
 					<Hint asChild label={label} >
-						<Button variant={"ghost"} onClick={onExpand} className="cursor-pointer hover:text-white">
+						<Button asChild variant={"ghost"} onClick={onExpand} className="cursor-pointer hover:text-white">
 							<ArrowRightFromLine className="size-5 block  text-[#757575]" />
 						</Button>
 					</Hint>

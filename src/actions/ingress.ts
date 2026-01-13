@@ -21,7 +21,7 @@ import { revalidatePath } from "next/cache";
 const ingressClient = new IngressClient(
 	process.env.LIVEKIT_URL!,
 	process.env.LIVEKIT_API_KEY!,
-	process.env.LIVEKIT_API_SECRET!
+	process.env.LIVEKIT_API_SECRET!,
 );
 
 export const createIngress = async (ingressType: IngressInput) => {
@@ -46,6 +46,7 @@ export const createIngress = async (ingressType: IngressInput) => {
 		roomName: self.id,
 		participantIdentity: self.id,
 		participantName: self.username,
+
 	};
 
 	// Set video encoding with preset
@@ -68,6 +69,9 @@ export const createIngress = async (ingressType: IngressInput) => {
 
 	// Create ingress
 	const ingress = await ingressClient.createIngress(ingressType, options);
+	console.log("Ingress URL:", ingress.url);
+	console.log("Ingress server info:", ingress);
+
 	if (!ingress.ingressId || !ingress.streamKey || !ingress.url) {
 		throw new Error("Failed to create ingress");
 	}
